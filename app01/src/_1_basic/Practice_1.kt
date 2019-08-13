@@ -114,8 +114,49 @@ class OperatorsExample {
         // puedo crear otro val a partir de un val anterior, es decir que a pesar de ser uinmutable se puede
         // enviar a otro computo
         val blackAndWhite = blackColor.map{ x -> x+"1" }
-        println("blackAndWhite => "+blackAndWhite)
+        println(" Note el map :) blackAndWhite => "+blackAndWhite)
     }
+
+    /**
+     *Try to set rainbowColor to null. Declare two variables, greenColor and blueColor.
+     * Use two different ways of setting them to null.
+     */
+    fun nullabilityExample(){
+        var rainbowColor:String? = "yellow"
+        rainbowColor = null
+        var greenColor:String? = "Green"
+        var blueColor = null
+        greenColor = null;
+
+        //blackColor = "b"//errror
+        // puedo crear otro val a partir de un val anterior, es decir que a pesar de ser uinmutable se puede
+        // enviar a otro computo
+        println(" Note el map :) blackAndWhite => "+greenColor+blueColor)
+    }
+
+    /**
+     * 1) Create a list with two elements that are null; do it in two different ways.
+     * 2) Next, create a list where the list is null.
+     */
+    fun nullList(){
+        var list1: List<String?> = listOf(null, null)
+        val list1_1: List<String?>? = listOf(null, null)
+        var list1_2 = listOf(null, null)
+        val list2: List<String>? = null
+        val list2_2 = null
+        println("list1=> "+list1+"list1_1=> "+list1_1+"list2=> "+list2)
+    }
+
+    /**
+     * > Create a nullable integer variable called nullTest, and set it to null. Use a null-check that increases the value by one if it's not null, otherwise returns 0, and prints the result.
+     *       Hint: Use the Elvis operator.
+     */
+    fun nullChecks(){
+        var nullTest:Int? = null
+        val result = nullTest?.inc()?:0
+        println("nullChecks => "+result)
+    }
+
 
 }
 
@@ -130,5 +171,7 @@ fun main(args: Array<String>) {
     opVal.easyNullValidation()
     opVal.basicOperators()
     opVal.variables()
+    opVal.nullList()
+    opVal.nullChecks()
 }
 
