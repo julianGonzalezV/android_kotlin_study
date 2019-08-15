@@ -1,7 +1,7 @@
 package _1_basic
 
 import java.util.*
-import kotlin.Math.*
+import kotlin.math.*
 
 class ArrysAndLoops{
 
@@ -61,7 +61,7 @@ class ArrysAndLoops{
         /**
          * AHOra si el dinamismo :)
          */
-        val arr2 = Array(5){it * 2} // a cada elemento lo multiplica por 2, es como un map en functional programming
+        val arr2 = Array(6){it * 2} // a cada elemento lo multiplica por 2, es como un map en functional programming
         println("arr2=> "+Arrays.toString(arr2))
         /**
          * Para evitar lo engorroso del array.tostr use asList
@@ -108,7 +108,8 @@ class ArrysAndLoops{
         1 petabyte = 1000000000000000 bytes
         1 exabyte = 1000000000000000000 bytes
      */
-    fun questio1(){
+    fun question1(){
+        println("Quiz: Arrays and Loops::::::::::")
         //val array = ???
         val v1 = 1000.0
         val array = Array(7){ v1.pow(it) }
@@ -119,6 +120,20 @@ class ArrysAndLoops{
         }
     }
 
+    /**
+     * How can you use a for loop to create (a list of)
+     * the numbers between 0 and 100 that are divisible by 7?
+     */
+    fun question2() {
+        println("Quiz: question2::::::::::")
+        val list1 = mutableListOf<Int>()
+        for (i in  0..100 step 7){
+            list1.add(i)
+
+        }
+        println("question2 => "+list1)
+    }
+
 }
 fun main(args: Array<String>){
     ArrysAndLoops().mmutableList()
@@ -126,5 +141,7 @@ fun main(args: Array<String>){
     ArrysAndLoops().arrayElem()
     ArrysAndLoops().dynamicArrayElem()
     ArrysAndLoops().loops()
+    ArrysAndLoops().question1()
+    ArrysAndLoops().question2()
 
 }
