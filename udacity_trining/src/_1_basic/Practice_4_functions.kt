@@ -18,13 +18,14 @@ object Functions {
        })
    }
 
-    fun passingArgsFromMain(arg: String){
-        val hour = arg.toInt()
-        println("Good"${if (hour > 12 )})
+    fun passingArgsFromMain(arg:  Array<String>){
+        println("Valor que se pasa por argumentos o run>>editconfiguration>>program argumentgs ---> ${arg[0]}")
+        println("Good ${if(arg[0].toInt() < 12) "Morning" else "Afternoon"}")
 
     }
 }
 
 fun main(args: Array<String>){
     Functions.dayOfWeek()
+    Functions.passingArgsFromMain(args)
 }
