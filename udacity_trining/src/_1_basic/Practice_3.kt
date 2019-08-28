@@ -1,7 +1,7 @@
 package _1_basic
 
 import java.util.*
-import kotlin.math.*
+//import kotlin.math.*
 
 class ArrysAndLoops{
 
@@ -112,7 +112,8 @@ class ArrysAndLoops{
         println("Quiz: Arrays and Loops::::::::::")
         //val array = ???
         val v1 = 1000.0
-        val array = Array(7){ v1.pow(it) }
+        //val array = Array(7){ v1.pow(it) }
+        val array = Array(2){1;2}
         val sizes = arrayOf("byte", "kilobyte", "megabyte", "gigabyte",
                 "terabyte", "petabyte", "exabyte")
         for ((i, value) in array.withIndex()) {
