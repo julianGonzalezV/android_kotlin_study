@@ -27,7 +27,8 @@ object Functions {
     fun feedTheFish(){
         val day = randomDay()
         val food = fishFood(day)
-        println("Today is $day and the fish eats $food ")
+        print("Today is $day and the fish eats $food ")
+        if(shouldChangeWater(day)) println(" And you have to Change the water")
     }
 
     fun randomDay():String{
@@ -58,23 +59,26 @@ object Functions {
     }
 
     /**
-     * Versiòn mejorada porque no le corresponde calcular el birthay o recibirlo
+     * Versiòn mejorada porque no le corresponde calcular el birthday o recibirlo
      * en su lugar usa a la funcion getBirthday()
      */
     fun getFortuneCookie2():String{
         val mensaje = listOf("You will have a great day!","Things will go well for you today.","Enjoy a wonderful day of success",
                 "Be humble and all will turn out well.","Today is a good day for exercising restraint.","Take it easy and enjoy life!"
                 ,"Treasure your friends because they are your greatest fortune.")
-        print("Enter your birthday:")
-        when(getBirthday()){
-            in 28..31 -> return mensaje[2]
-            in 0..7 -> return mensaje[4]
-            else -> return mensaje[getBirthday().rem(mensaje.size)]
+        print("Enter your birthday: mensaje.size)"+mensaje.size)
+        val bDay = getBirthday()
+        val indx = when(bDay){
+            in 28..31 ->  2
+            in 0..7 ->  4
+            else ->  bDay.rem(mensaje.size)
         }
+        return mensaje[indx]
     }
 
     fun getBirthday():Int{
         val birthday = readLine()?.toIntOrNull()?:0
+        print("birthday is ${birthday}")
         return birthday
     }
 
@@ -90,10 +94,23 @@ object Functions {
     }
 
     /**
-     * Note que si usted no pasa un valor entonces "fast serà el valor por defecto"
+     * Note que si usted no pasa un valor para speed
+     * entonces "fast serà el valor por defecto"
      */
-    fun swim(speed:String = "fast"){
-        println("Swimming $speed")
+    fun swim(time:Int, speed:String = "fast"){
+        println("Swimming $time - $speed")
+    }
+
+    /**
+     * función para saber si se debe cambiar el agua a los peces
+     */
+    fun shouldChangeWater(day:String, temperature:Int = 22, dirty:Int = 20):Boolean{
+        return true
+    }
+
+    fun canAddFish(tankSize:Int, currentFish:List<Int>, fishSize:Int, hasDecorations:Boolean):Boolean{
+
+        return true
     }
 
 }
@@ -108,13 +125,15 @@ fun main(args: Array<String>){
 
     /**
      * Sin paràmetros
-     * Note como imprime fast
+     * Note como imprime el valor por defecto en la firma del método
      */
-    Functions.swim()
+    Functions.swim(100)
 
     /**
      * Con paràmetros
      */
-    Functions.swim("leento")
+    Functions.swim(5,"leento")
+
+   // Functions.getFortuneCookie2()
 
 }
