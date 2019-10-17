@@ -109,10 +109,8 @@ object Functions {
     }
 
     fun canAddFish(tankSize:Double, currentFish:List<Int>, fishSize:Int = 2, hasDecorations:Boolean = true):Boolean{
-        val maxPercentage:Double = if(hasDecorations) 0.8 else 1.0
-        val totalInches = if(currentFish.isEmpty()) 0 else currentFish?.reduce{x, y -> x + y} + fishSize
-        val result = totalInches/tankSize <= maxPercentage
-        println("$result - maxPercentage $maxPercentage totalInches $totalInches")
+        val result = (currentFish.sum()+fishSize)/tankSize <= if(hasDecorations) 0.8 else 1.0
+        println(result)
         return result
     }
 
