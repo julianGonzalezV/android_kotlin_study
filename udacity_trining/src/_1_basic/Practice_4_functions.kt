@@ -108,9 +108,12 @@ object Functions {
         return true
     }
 
-    fun canAddFish(tankSize:Int, currentFish:List<Int>, fishSize:Int, hasDecorations:Boolean):Boolean{
-
-        return true
+    fun canAddFish(tankSize:Double, currentFish:List<Int>, fishSize:Int = 2, hasDecorations:Boolean = true):Boolean{
+        val maxPercentage:Double = if(hasDecorations) 0.8 else 1.0
+        val totalInches = if(currentFish.isEmpty()) 0 else currentFish?.reduce{x, y -> x + y} + fishSize
+        val result = totalInches/tankSize <= maxPercentage
+        println("$result - maxPercentage $maxPercentage totalInches $totalInches")
+        return result
     }
 
 }
@@ -135,5 +138,11 @@ fun main(args: Array<String>){
     Functions.swim(5,"leento")
 
    // Functions.getFortuneCookie2()
+
+    println("===========canAddFish=================")
+    Functions.canAddFish(10.0, listOf(3,3,3))//debe resolver a false
+    Functions.canAddFish(8.0, listOf(2,2,2), hasDecorations = false)//debe resolver a true
+    Functions.canAddFish(9.0, listOf(1,1,3),3)//debe resolver a false
+    Functions.canAddFish(10.0, listOf(),7,true)//debe resolver a true
 
 }
