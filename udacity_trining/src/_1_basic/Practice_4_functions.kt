@@ -105,7 +105,17 @@ object Functions {
      * función para saber si se debe cambiar el agua a los peces
      */
     fun shouldChangeWater(day:String, temperature:Int = 22, dirty:Int = 20):Boolean{
-        return true
+        /*
+        When sin parámetros actua como una secuencia de if -else y se puede
+        entonces coparar por varios parámetros combinados o por separado,
+        e este caso por separado
+         */
+        return when{
+            temperature > 30 -> true
+            dirty > 30 -> true
+            day == "Sunday" -> true
+            else -> false
+        }
     }
 
     fun canAddFish(tankSize:Double, currentFish:List<Int>, fishSize:Int = 2, hasDecorations:Boolean = true):Boolean{
@@ -113,6 +123,27 @@ object Functions {
         println(result)
         return result
     }
+
+
+    //############################################
+    // Practice Time
+    // Create a program that suggests an activity based on various parameters.
+
+    fun whatShouldIDoToday(mood: String, weather:String = "sunny", temperature: Int = 24){
+
+        val result = when{
+            mood == "happy" && weather == "Sunny" -> "go for a walk"
+            else -> "Stay home and read."
+        }
+
+        println(result);
+    }
+
+
+
+
+
+    //############################################
 
 }
 
@@ -142,5 +173,6 @@ fun main(args: Array<String>){
     Functions.canAddFish(8.0, listOf(2,2,2), hasDecorations = false)//debe resolver a true
     Functions.canAddFish(9.0, listOf(1,1,3),3)//debe resolver a false
     Functions.canAddFish(10.0, listOf(),7,true)//debe resolver a true
+    Functions.whatShouldIDoToday("sad")
 
 }
