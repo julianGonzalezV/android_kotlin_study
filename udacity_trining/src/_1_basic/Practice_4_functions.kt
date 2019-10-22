@@ -139,7 +139,23 @@ object Functions {
         println(result);
     }
 
+    //Practice Time: Improve your whatShouldIDoToday() program with the new
+    //knowledge from this segment.
 
+    fun whatShouldIDoToday2(mood: String, weather:String = "sunny", temperature: Int = 24):String{
+
+        return when {
+            validate1(mood,weather,temperature)-> "stay in bed"
+            validate2(temperature) -> "go swimming"
+            else -> "Stay home and read."
+
+        }
+
+    }
+
+    fun validate1(mood: String, weather: String, temperature: Int) = mood == "sad" && weather == "rainy" && temperature == 0
+
+    fun validate2(temperature: Int) = temperature == 0 || temperature > 35
 
 
 
