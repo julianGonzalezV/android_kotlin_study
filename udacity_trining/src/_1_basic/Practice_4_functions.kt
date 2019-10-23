@@ -142,11 +142,16 @@ object Functions {
     //Practice Time: Improve your whatShouldIDoToday() program with the new
     //knowledge from this segment.
 
-    fun whatShouldIDoToday2(mood: String, weather:String = "sunny", temperature: Int = 24):String{
+    fun whatShouldIDoToday2(weather:String = "sunny", temperature: Int = 24):String{
+        print("Enter mood text: ")
+        //val mood = readLine()!!
+        val mood = "sad"
+        println("You entered: $mood")
 
         return when {
-            validate1(mood,weather,temperature)-> "stay in bed"
+            //validate1(mood,weather,temperature)-> "stay in bed"
             validate2(temperature) -> "go swimming"
+
             else -> "Stay home and read."
 
         }
@@ -160,6 +165,54 @@ object Functions {
 
 
     //############################################
+
+
+
+
+
+    //kotlin filters############################################
+    fun filterEx(){
+        println("filterEx")
+        val decorations = listOf("roc","pagoda","plastic plant","alligator","flowerpot")
+        // Imprime todo
+        println(decorations.filter { true })
+
+        println(decorations.filter { it[0] == 'p' })
+
+        // La siguiente linea no funciona como quizás si suceda en otros lenguajes
+        // porque no permite usar strings donde char debe ser usado
+        //println(decorations.filter { it[0] == "p" })
+
+        // IMPORTANTE, PODEMOS USAR FILTER DE FORMA LAZY O EAGER
+        //EAGER:
+        val eager = decorations.filter { it[0] == 'p' }
+        println("eager example -> ${eager}")
+
+
+        //LAZY: De la forma laizy pide que sea sequence, para no usar it si no entiende
+        // entonces aplique el filter
+        val lazy =decorations.asSequence().filter { x ->
+            // note que las imprime todas porque lo que hace es recorrer todo el arreglo y le aplica el filter
+            // volviendo cada registro el true o false (si cumple o no el filter)
+            println("lazy Imprimiento ${x}")
+            x[0]=='p'
+        }
+        println("lazy filter note que se imprime la especiicacion ->${lazy}")
+        println("lazy execution ->${lazy.toList()}")
+
+        // sequence apalanca LAZY MAP
+        val lazyMap = decorations.asSequence().map { x ->
+            println("Imprimiento ${x}")
+            x
+         }
+        println("lazy Map->${lazyMap}")
+        println("lazy map execution ->${lazyMap.first()}")
+
+
+    }
+
+
+    //##########################################################
 
 }
 
@@ -190,5 +243,8 @@ fun main(args: Array<String>){
     Functions.canAddFish(9.0, listOf(1,1,3),3)//debe resolver a false
     Functions.canAddFish(10.0, listOf(),7,true)//debe resolver a true
     Functions.whatShouldIDoToday("sad")
+    val wsid = Functions.whatShouldIDoToday2( temperature = 36)
+    println("whatShouldIDoToday2 -> ${wsid}")
 
+    Functions.filterEx()
 }
