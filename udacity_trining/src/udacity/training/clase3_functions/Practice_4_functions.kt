@@ -1,4 +1,4 @@
-package _1_basic
+package udacity.training.clase3_functions
 
 import java.util.*
 
@@ -212,7 +212,21 @@ object Functions {
     }
 
 
-    //##########################################################
+    //#####FILTERS#####################################################
+    fun filter(){
+        println("17.Quiz: Practice Timefilter")
+        val spices = listOf("curry", "pepper", "cayenne", "ginger", "red curry", "green curry", "red pepper" )
+        val curries = spices.filter { it.contains("curry") }.sortedBy { it.length }
+        println("currries ${curries}")
+
+        val ce1 = spices.filter { it.startsWith("c") && it.endsWith("e")}
+        val ce2 = spices.filter { x -> x.startsWith("c")  && x.endsWith("e")}
+        println("ce1 ${ce1}")
+        println("ce2 ${ce2}")
+
+        val threeAndStartWithC = spices.take(3).filter { it.startsWith("c") }
+        println("threeAndStartWithC ${threeAndStartWithC}")
+    }
 
 }
 
@@ -233,18 +247,20 @@ fun main(args: Array<String>){
     /**
      * Con paràmetros
      */
-    Functions.swim(5,"leento")
+    Functions.swim(5, "leento")
 
    // Functions.getFortuneCookie2()
 
     println("===========canAddFish=================")
-    Functions.canAddFish(10.0, listOf(3,3,3))//debe resolver a false
-    Functions.canAddFish(8.0, listOf(2,2,2), hasDecorations = false)//debe resolver a true
-    Functions.canAddFish(9.0, listOf(1,1,3),3)//debe resolver a false
-    Functions.canAddFish(10.0, listOf(),7,true)//debe resolver a true
+    Functions.canAddFish(10.0, listOf(3, 3, 3))//debe resolver a false
+    Functions.canAddFish(8.0, listOf(2, 2, 2), hasDecorations = false)//debe resolver a true
+    Functions.canAddFish(9.0, listOf(1, 1, 3), 3)//debe resolver a false
+    Functions.canAddFish(10.0, listOf(), 7, true)//debe resolver a true
     Functions.whatShouldIDoToday("sad")
-    val wsid = Functions.whatShouldIDoToday2( temperature = 36)
+    val wsid = Functions.whatShouldIDoToday2(temperature = 36)
     println("whatShouldIDoToday2 -> ${wsid}")
 
     Functions.filterEx()
+
+    Functions.filter()
 }

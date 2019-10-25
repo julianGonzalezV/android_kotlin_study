@@ -1,4 +1,4 @@
-package _1_basic
+package udacity.training.clase2_basics
 
 import java.util.*
 //import kotlin.math.*

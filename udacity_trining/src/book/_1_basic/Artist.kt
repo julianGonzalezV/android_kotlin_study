@@ -1,4 +1,4 @@
-package _0_book._1_basic
+package book._1_basic
 
 /**
  * Esto es more expressibe

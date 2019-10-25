@@ -1,7 +1,4 @@
-package _1_basic
-
-import java.math.BigDecimal
-import java.math.BigInteger
+package udacity.training.clase2_basics
 
 class OperatorsExample {
     fun printHello () {
