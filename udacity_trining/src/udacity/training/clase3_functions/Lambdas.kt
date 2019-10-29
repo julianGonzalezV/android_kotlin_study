@@ -1,6 +1,6 @@
 package udacity.training.clase3_functions
 
-object Lambas {
+object Lambdas {
 
     //#####18 Kotlin lambdas: Expresion para hacer funciones#####################################################
     fun swim(){
@@ -36,21 +36,41 @@ object Lambas {
      */
     fun dirtyProccessor():Int{
         dirty = updateDirty(dirty, waterFilter)
-        dirty = updateDirty(dirty, Lambas::feedFish)
+        dirty = updateDirty(dirty, Lambdas::feedFish)
         dirty = updateDirty(dirty, {it +50})
         return dirty
     }
 
+    /**
+     *
+     */
+    fun random():Double{
+        return Math.random();
+    }
+
+
+    //#####19 quiz time
+
+
 }
 fun main(args: Array<String>){
-    Lambas.swim()
-    Lambas.lambda1
+    Lambdas.swim()
+    Lambdas.lambda1
     /**
      * Note acá como uso la clase invoke, de lo contratio nunca haría algo
      */
-    Lambas.lambda2.invoke()
-    val result = Lambas.suma(7,8)
+    Lambdas.lambda2.invoke()
+    val result = Lambdas.suma(7,8)
     println("suma $result")
-    println("resta ${Lambas.resta(9,4)}")
-    println(Lambas.dirtyProccessor())
+    println("resta ${Lambdas.resta(9,4)}")
+    println(Lambdas.dirtyProccessor())
+
+    val rd1 = Lambdas.random();
+    val rd2 = {Lambdas.random()};
+    println("random1 $rd1")
+    println("random1 $rd1")
+    println("random2 lazy $rd2")
+    println("random2 invoke ${rd2.invoke()}")
+    //Note como a pesar de ser val genera uno nuevo pero realmente no modificó el anterior
+    println("random2 invoke2 ${rd2.invoke()}")
 }
