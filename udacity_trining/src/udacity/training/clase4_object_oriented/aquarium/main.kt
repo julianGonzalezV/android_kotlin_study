@@ -28,6 +28,16 @@ private fun buildAquarium(){
     val mutableAquarium = AquariumMutable()
     mutableAquarium.height = 80
     println("Volume ${mutableAquarium.volume}")
+
+
+    println("Quiz item 3")
+    val simpleSp = SimpleSpice()
+    println("simpleSp name-> ${simpleSp.name} heat -> ${simpleSp.heat}")
+
+
+    val aqV2 = AquariumV2(20,15,30)
+    println("length ${aqV2.length} - width ${aqV2.width} -height ${aqV2.height}")
+
 }
 
 /**
