@@ -36,7 +36,14 @@ private fun buildAquarium(){
 
 
     val aqV2 = AquariumV2(20,15,30)
-    println("length ${aqV2.length} - width ${aqV2.width} -height ${aqV2.height}")
+    println("aqV2 -> ${aqV2.toString()}")
+    val aqV2II = AquariumV2()
+    println("aqV2II ->  ${aqV2II.toString()} ")
+
+    val aqV2III = AquariumV2(numberOfFish = 9)
+    println("aqV2III ->  ${aqV2III.toString()}")
+
+
 
 }
 
