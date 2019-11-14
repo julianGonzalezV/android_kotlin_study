@@ -40,6 +40,9 @@ private fun buildAquarium(){
     val aqV2II = AquariumV2()
     println("aqV2II ->  ${aqV2II.toString()} ")
 
+    /**
+     * Note que el height es diferente
+     */
     val aqV2III = AquariumV2(numberOfFish = 9)
     println("aqV2III ->  ${aqV2III.toString()}")
 

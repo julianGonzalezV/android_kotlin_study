@@ -19,7 +19,8 @@ class AquariumV2(val width:Int = 100,var height:Int = 20, val length:Int = 40){
     /**
      * OJO: si se quitan los valores por defecto del constructor de la clase con
      * parámetros entonces no funcionará el this() porque pedirá inicializar dichos
-     * valores(explore :) )
+     * valores(explore :) )...en este caso this se refiere al constructor con
+     * parámetros de arriba
      */
     constructor(numberOfFish:Int) : this(){
         val water = numberOfFish * 2000 //cm3
