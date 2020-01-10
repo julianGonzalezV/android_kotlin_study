@@ -206,13 +206,13 @@ class SortingAlgorithm<T> {
      * 2) QuickSort
      */
     /**
-     * 1) Merge sort: Use the divide and conquer strategy, It splits the input list the the half of this in a recursively
+     * 1) Merge sort: Use the divide and conquer strategy, It splits the input list to the half of this in a recursively
      * way, until each resulted list has one (1) element
      * > Ordena cada sublist
      * > Hce merge de cada pedazo y va armando the full list
      * complejidad:
      * Dividir y volver a juntar es O(logn)
-     * Por cada subset(que ya es O(lgn) se debe ordenar estos y en le mejor de los casos de ordenamiento es   O(n)
+     * Por cada subset(que ya es O(lgn) se debe ordenar estos y en el mejor de los casos de ordenamiento es   O(n)
      * Resultado O(n log n)
      * UNA FORMA FÁCIL ES RECORRER LA LISTA DESORDENADA E IRLO METIENDO EN UN TREESET QUE NOS ASEGURA EL ORDENAMIENTO
      * AL INSERTAR
@@ -220,11 +220,15 @@ class SortingAlgorithm<T> {
 
     fun mergeSort(input: List<Int>):List<Int>{
         if(input.size == 1) return input
-        else mergeSort()
+        else return merge(input.subList(0, input.size/2),input.subList(input.size/2, input.size))
     }
 
-    fun merge(l1:List<Int>, l2:List<Int>):List<Int>{
-
+    fun merge(lL:List<Int>, lR:List<Int>, resutlList:List<Int>): List<Int> {
+        var i= 0
+        var j = 0
+        var k = 0
+        if(iL(i))
+        return null
     }
 
 
