@@ -19,6 +19,9 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, message, duration).show()
         }*/
 
+    /**
+     * ListOf es una lista inmutable
+     */
     private val listado = listOf("Hoy - soleado",
         "24-11-2019 - lluvia",
         "24-11-2019 - vientos",
@@ -29,7 +32,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         message.text = "string desde la clase 1"
         //val forecastList = findViewById(R.id.forecast_list) as RecyclerView
-        val forecastList: RecyclerView = find(R.id.forecast_list)
+
+        /**
+         * definicion y casteo de una variable
+         */
+        val forecastList: RecyclerView = find(R.id.forecast_list) as RecyclerView
+        /**
+         * inicializacion de una variable, note como no es necesario en new
+         */
         forecastList.layoutManager = LinearLayoutManager(this)
         forecastList.adapter = ForecastListAdapter(listado)
         toast("Probando extension")
