@@ -220,15 +220,33 @@ class SortingAlgorithm<T> {
 
     fun mergeSort(input: List<Int>):List<Int>{
         if(input.size == 1) return input
-        else return merge(input.subList(0, input.size/2),input.subList(input.size/2, input.size))
+        val middleIndex = input.size/2
+        println("mergeSort input ${input} middleIndex ${middleIndex}")
+        val leftList = mergeSort(input.subList(0, middleIndex))
+        val rightList = mergeSort(input.subList(middleIndex, input.size))
+
+        return merge(leftList,rightList)
     }
 
-    fun merge(lL:List<Int>, lR:List<Int>, resutlList:List<Int>): List<Int> {
-        var i= 0
-        var j = 0
-        var k = 0
-        if(iL(i))
-        return null
+    fun merge(lL:List<Int>, lR:List<Int>): List<Int> {
+        println("merge lL ${lL} ; lR ${lR}")
+        fun mergeIter(lIndex:Int, rIndex:Int, resulList:MutableList<Int> = ArrayList()):List<Int>{
+            println("mergeIter lIndex ${lIndex} ; rIndex ${rIndex} ; resulList ${resulList}")
+            if(lIndex>=lL.size ||  rIndex>=lR.size ) return resulList
+            else{
+                if(lL[lIndex] < lR[rIndex]){
+                    resulList.add( lL[lIndex])
+                    resulList.add( lR[rIndex])
+
+                }else{
+                    resulList.add( lR[rIndex])
+                    resulList.add( lL[lIndex])
+                }
+                return if((rIndex + 1) >= lR.size)  mergeIter(lIndex+1,rIndex,resulList)
+                else mergeIter(lIndex+1,rIndex + 1,resulList)
+            }
+        }
+        return mergeIter(0,0)
     }
 
 
@@ -252,4 +270,9 @@ fun main(args: Array<String>){
 
     println("Binary search: Nota, el arreglo debe estar ordenado")
     println(sortingAlgorithm.binarySearch(5,mutableListOf(1,4,5,7,8,9)))
+
+    println("Merge Sort")
+    //println(sortingAlgorithm.merge(listOf(38,43), listOf(82)))
+    println(sortingAlgorithm.mergeSort(listOf(38,43,82,67,1,2,3)))
+    print("int es "+ (1+(6-1)/2))
 }
