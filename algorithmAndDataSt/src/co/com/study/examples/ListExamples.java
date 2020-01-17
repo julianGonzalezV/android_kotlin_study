@@ -4,6 +4,7 @@ import javafx.util.Pair;
 import kotlin.TuplesKt;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class ListExamples {
 
@@ -27,7 +28,41 @@ public class ListExamples {
         }};
     }
 
+    /**
+     * Primera aprox
+     * @param inputList
+     * @return
+     */
+    static List<List> duplicatedAndNodupItemsStream(List<Integer> inputList){
+        Set temSet = new HashSet();
+        List nonDuplicated = new ArrayList();
+        List duplicated = new ArrayList();
+        inputList.stream().map(x -> {
+            if(temSet.add(x)) nonDuplicated.add(x);
+            else duplicated.add(x);
+            return x;
+        }).collect(Collectors.toList());
+
+        return new ArrayList(){
+            {
+                add(duplicated);
+                add(nonDuplicated);
+            }
+        };
+    }
+    static int mostRepeated(List<Integer> input){
+        Set  set = new HashSet();
+        Map map = new HashMap();
+        for (Integer i:input) {
+            map.put(i,1);
+        }
+
+        return 0;
+    }
+
     public static void main (String ... args){
         System.out.println(duplicatedAndNodupItems(Arrays.asList(1,2,3,3,4,5,6,5,7,8)));
+        System.out.println(duplicatedAndNodupItemsStream(Arrays.asList(1,2,3,3,4,5,6,5,7,8)));
+
     }
 }
