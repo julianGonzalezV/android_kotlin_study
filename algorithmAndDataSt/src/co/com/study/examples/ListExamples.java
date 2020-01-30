@@ -176,5 +176,9 @@ public class ListExamples {
 
         System.out.println(":::::::mostRepeatedJava8:::::::");
         System.out.println(mostRepeatedJava8(Arrays.asList(1,2,4,5,6,5,7,3,8,3)));
+
+        List l1 = Arrays.asList(1,2,4,5,6,5,7,3,8,3);
+        l1.sort(Comparator.naturalOrder());
+        System.out.println("Sorted"+l1);
     }
 }
