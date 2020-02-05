@@ -166,6 +166,14 @@ public class ListExamples {
         return frecuencyValue.values();
     }
 
+    /*
+     * Complete the 'customSort' function below.
+     *
+     * The function accepts INTEGER_ARRAY arr as parameter.
+     */
+
+
+
     public static void main (String ... args){
         System.out.println(duplicatedAndNodupItems(Arrays.asList(1,2,3,3,4,5,6,5,7,8)));
         System.out.println(duplicatedAndNodupItemsStream(Arrays.asList(1,2,3,3,4,5,6,5,7,8)));
