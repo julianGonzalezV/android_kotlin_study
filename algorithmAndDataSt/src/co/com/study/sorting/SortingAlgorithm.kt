@@ -206,7 +206,13 @@ class SortingAlgorithm<T> {
      * 2) QuickSort
      */
     /**
-     * 1) Merge sort: Use the divide and conquer strategy, It splits the input list to the half of this in a recursively
+     * 1) Merge sort:
+     *
+     * This function doesn't actually do any sorting (actually done in [merge]).
+     * - O(log(n)) -> recursively splitting the given list into smaller lists.
+     * - O(n) -> merging two pre-sorted lists quickly (the [merge] function).
+     *
+     * Use the divide and conquer strategy, It splits the input list to the half of this in a recursively
      * way, until each resulted list has one (1) element
      * > Ordena cada sublist
      * > Hce merge de cada pedazo y va armando the full list
@@ -228,6 +234,9 @@ class SortingAlgorithm<T> {
         return merge(leftList,rightList)
     }
 
+    /**
+     * Merging two sorted lists into one full sorted List
+     */
     fun merge(lL:List<Int>, lR:List<Int>): List<Int> {
         println("merge lL ${lL} ; lR ${lR}")
         fun mergeIter(lIndex:Int, rIndex:Int, resulList:MutableList<Int> = ArrayList()):List<Int>{
@@ -251,6 +260,14 @@ class SortingAlgorithm<T> {
 
 
 }
+
+/**
+ * Other algorithm with performaance of  * O(n * log n) linearithmic-time : linearítmica is
+ * QuickSort..for instance:
+ * Use de idea of divide ad conquer
+ * use a PIVOT value, wich divides the full list into two smaller list lRight and lLeft where elements on the lLeft are smmaller
+ * than PIVOT value and elements in lright are greather than PIVOT value
+ */
 
 
 fun main(args: Array<String>){

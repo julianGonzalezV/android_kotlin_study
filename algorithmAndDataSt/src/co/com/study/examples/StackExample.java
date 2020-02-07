@@ -39,6 +39,18 @@ public class StackExample {
         }
     }
 
+     static  void forIter(){
+         Stack<Integer> stk = new Stack<>();
+         stk.push(1);
+         stk.push(2);
+         stk.push(3);
+
+        for (int i:stk
+             ) {
+            System.out.println(i);
+        }
+    }
+
 
     public static void main(String ... args){
         System.out.println("(a[0]+b[2c[6]]){24+3} --> "+StackExample.parenthesisValidation("(a[0]+b[2c[6]]){24+3}"));
@@ -50,5 +62,7 @@ public class StackExample {
         System.out.println("([)]-->"+StackExample.parenthesisValidation("([)]"));
         System.out.println(")(-->"+StackExample.parenthesisValidation(")("));
         System.out.println("Empty-->"+StackExample.parenthesisValidation(""));
+        System.out.println("Stack For Example");
+        StackExample.forIter();
     }
 }
