@@ -1,5 +1,6 @@
 package co.com.study.sorting;
 
+import java.io.Serializable;
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,7 +12,7 @@ import java.util.stream.Stream;
  * Fuentes:
  * https://www.oracle.com/technetwork/es/articles/java/procesamiento-streams-java-se-8-2763402-esa.html
  */
-public class FunctionalProgJava {
+public class FunctionalProgJava implements Serializable {
 
     static Double distanciaEntrePuntos(Double x1,Double y1,Double x2, Double y2){
         return Math.sqrt(Math.pow(x2-x1,2) + Math.pow(y2-x1,2));
