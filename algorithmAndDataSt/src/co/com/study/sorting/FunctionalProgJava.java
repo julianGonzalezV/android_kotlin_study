@@ -13,6 +13,10 @@ import java.util.stream.Stream;
  */
 public class FunctionalProgJava {
 
+    static Double distanciaEntrePuntos(Double x1,Double y1,Double x2, Double y2){
+        return Math.sqrt(Math.pow(x2-x1,2) + Math.pow(y2-x1,2));
+    }
+
     static Integer factorial(Integer inputNumber){
         if(inputNumber == 0) return 1;
         else {
@@ -29,6 +33,16 @@ public class FunctionalProgJava {
 
 
     public static void main(String ... args){
+        Punto p1 = new Punto(1,1);
+        Punto p2 = new Punto(2,2);
+        Punto p3 = new Punto(2,3);
+
+        double dp1p2 = distanciaEntrePuntos(p1.getX(), p1.getY(), p2.getX(),p2.getY());
+        double dp1p3 = distanciaEntrePuntos(p1.getX(), p1.getY(), p2.getX(),p2.getY());
+        double dp3p3 = distanciaEntrePuntos(p1.getX(), p1.getY(), p2.getX(),p2.getY());
+        double promedio = (dp1p2+dp1p3+dp3p3)/3;
+        System.out.println("la el promedio de las distancias es"+promedio);
+
         System.out.println("hola, esto es una impresión sin for o while");
         printList(new ArrayList(){{
             add(1);
@@ -56,5 +70,37 @@ public class FunctionalProgJava {
                 .collect(Collectors.toList());
         System.out.println("evensToFactorial => "+evensToFactorial);
 
+
+        //Punto1
+        double x1 = 1;
+
+
+    }
+
+}
+
+class Punto {
+    private double x;
+    private double y;
+
+    public Punto(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
     }
 }
